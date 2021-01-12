@@ -1,18 +1,30 @@
-prime_number = [False, False] + [True]*10002
-for i in range(2, 10002):
-    if prime_number[i] == True:
-        for j in range(2 * i, 10002, i):
-            prime_number[j] = False
+def count(lst):
+    count1, count2 = 0, 0
+    for i in range(len(lst)):
+        if lst[i] == '(':
+            count1 += 1
+        else:
+            count2 += 1
+    if count1 == count2:
+        return True
+    else:
+        return False
+
+def tmp(lst):
+    tmp = 0
+    for j in range(len(lst)):
+        if lst[j] == '(':
+            tmp += 1
+        else:
+            tmp -= 1
+        if tmp < 0:
+            return False
+    return True
 
 T = int(input())
-for i in range(T):
-    n = int(input())
-    a = n // 2
-    b = a
-    while a > 0:
-        if prime_number[a] and prime_number[b]:
-            print(a, b)
-            break
-        else:
-            a -= 1
-            b += 1
+for _ in range(T):
+    lst = input()
+    if count(lst) and tmp(lst):
+        print("YES")
+    else:
+        print("NO")
