@@ -6,3 +6,4 @@ for i in range(N):
 anw = sorted(lst)
 for i in anw:
     print(i)
+    

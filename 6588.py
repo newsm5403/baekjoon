@@ -1,11 +1,10 @@
 def prime_num():
-    prime_number = [False, False] + [True]*1000002
+    prime_number = [False, False] + [True] * 10000002
     for i in range(2, 1000002):
         if prime_number[i] == True:
             for k in range(2*i, 1000002, i):
                 prime_number[k] = False
     return prime_number
-
 
 def get_anw(n, lst):
     a = 0
